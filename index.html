@@ -4,260 +4,190 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rupal Arya</title>
-
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
 
-body{
-  background:#0a0a0a;
-  font-family:'Syne',sans-serif;
-  overflow-x:hidden;
-  cursor:none;
-}
-
-#cursor{
-  position:fixed;
-  width:14px;
-  height:14px;
-  background:#f97316;
-  border-radius:50%;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  z-index:9999;
-}
-
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-}
-
-#hero{
-  position:relative;
-  z-index:2;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:0 6vw;
-}
-
-.tag{
-  font-family:'Syne Mono',monospace;
-  font-size:0.7rem;
-  letter-spacing:0.25em;
-  color:#f97316;
-  margin-bottom:2rem;
-}
-
-h1{
-  font-weight:800;
-
-  font-size: clamp(5rem,14vw,13rem);
-line-height:0.92;
-  color:#f5f5f5;
-}
-
-h1 span{
-  color:#f97316;
-}
-
-.subtitle{
-  margin-top:2.5rem;
-  font-family:'Syne Mono',monospace;
-  font-size:clamp(0.85rem,1.5vw,1rem);
-  color:rgba(245,245,245,0.4);
-}
-
-#typing{
-  color:#f97316;
-  border-right:2px solid #f97316;
-  padding-right:4px;
-  animation:blink 0.7s infinite;
-}
-
-@keyframes blink{
-  50%{ border-color:transparent; }
-}
-
-.cta-row{
-  margin-top:3rem;
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:0.75rem 2rem;
-  font-weight:700;
-  font-size:0.85rem;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  text-decoration:none;
-  transition:0.2s ease;
-}
-
-.primary{
-  background:#f97316;
-  color:#0a0a0a;
-}
-
-.primary:hover{
-  transform:translateY(-3px);
-}
-
-.secondary{
-  border:1px solid rgba(255,255,255,0.3);
-  color:#f5f5f5;
-}
-
-.secondary:hover{
-  border-color:#f97316;
-  color:#f97316;
-}
-
-.badge{
-  position:absolute;
-  top:2rem;
-  right:6vw;
-  font-family:'Syne Mono',monospace;
-  font-size:0.65rem;
-  letter-spacing:0.15em;
-  color:rgba(245,245,245,0.4);
-}
-
-
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; font-family: 'Syne', sans-serif; }
+h1 { font-weight: 800; font-size: clamp(5rem, 14vw, 13rem); line-height: 0.92; color: #f5f5f5; }
+h1 span { color: #f97316; }
+#typing { color: #f97316; border-right: 2px solid #f97316; padding-right: 4px; animation: blink 0.7s infinite; }
+@keyframes blink { 50% { border-color: transparent; } }
+  
 </style>
 </head>
 
 <body>
+<section id="hero" class="min-h-screen flex flex-col justify-center px-[6vw] relative">
 
-<div id="cursor"></div>
-<canvas id="canvas"></canvas>
+    <div class="absolute top-8 right-[6vw] font-mono text-[0.65rem] tracking-[0.15em] text-white/40">
+      AVAILABLE FOR OPPORTUNITIES
+    </div>
 
-<section id="hero">
+    <p class="font-mono text-[0.7rem] tracking-[0.25em] text-[#f97316] mb-8">
+      // frontend engineer · mca graduate
+    </p>
 
-  <div class="badge">AVAILABLE FOR OPPORTUNITIES</div>
-
-  <p class="tag">// frontend engineer · mca student</p>
-
-  <h1>
+    <h1>
     Rupal<br>
     <span>Arya.</span>
-  </h1>
+    </h1>
 
-  <p class="subtitle">
+    <p class="mt-10 font-mono text-[clamp(0.85rem,1.5vw,1rem)] text-white/40">
     I build <span id="typing"></span>
-  </p>
+    </p>
 
-  <div class="cta-row">
-    <a href="#" class="btn primary">See my work</a>
-    <a href="#" class="btn secondary">Get in touch</a>
-  </div>
+    <div class="mt-12 flex gap-4 flex-wrap">
+      <a href="#" class="px-8 py-3 bg-[#f97316] text-[#0a0a0a] font-bold text-sm tracking-wide uppercase hover:-translate-y-1 transition-transform">
+      See my work
+      </a>
+      <a href="#" class="px-8 py-3 border border-white/30 text-white text-sm font-bold tracking-wide uppercase hover:border-[#f97316] hover:text-[#f97316] transition-all">
+        Get in touch
+      </a>
+    </div>
 
-</section>
+  </section>
 
-<script>
+  <section id="about" class="px-[6vw] py-20">
+   <h2 class="text-[2.5rem] font-extrabold text-white mb-6">
+      Who I <span class="text-[#f97316]">Am.</span>
+    </h2>
 
-const cursor = document.getElementById("cursor");
+    <p class="text-base leading-relaxed text-white/60 max-w-[650px]">
+      Hey! I'm <strong class="text-white">Rupal Arya</strong>  a frontend engineer
+      and MCA Graduate who loves building interfaces.
+      I care about design, details, and making things people actually enjoy using.
+      <br><br>
+      I'm driven by curiosity always learning, always building, always looking for
+      the intersection between <strong class="text-white">great design</strong>
+      and <strong class="text-white">clean code</strong>.
+    </p>
 
-document.addEventListener("mousemove", (e)=>{
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+  </section>
 
+  <section id="skills" class="px-[6vw] py-20">
 
-const words = [
-  "interfaces that feel alive.",
-  "experiences, not just pages.",
-  "creative frontend magic.",
-  "things people love to use."
-];
+    <h2 class="text-[2.5rem] font-extrabold text-white mb-8">
+      My <span class="text-[#f97316]">Skills.</span>
+    </h2>
 
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-const typing = document.getElementById("typing");
+    <div class="flex flex-wrap gap-4">
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">HTML5</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">CSS3</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">JavaScript</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">Tailwind CSS</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">React JS</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">Figma</span>
+    </div>
 
-function typeEffect(){
-  const current = words[wordIndex];
+  </section>
 
-  if(!deleting){
-    typing.textContent = current.slice(0, charIndex++);
-    if(charIndex > current.length){
-      deleting = true;
-      setTimeout(typeEffect,1500);
-      return;
+  <section id="projects" class="px-[6vw] py-20">
+
+    <h2 class="text-[2.5rem] font-extrabold text-white mb-8">
+      My <span class="text-[#f97316]">Projects.</span>
+    </h2>
+
+    <div class="grid grid-cols-2 gap-6 max-w-[900px]">
+
+      <div class="p-7 border border-[#f97316]/20 bg-orange-500/5">
+        <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">01</div>
+        <div class="text-xl font-extrabold text-white mb-2">Theme Clock</div>
+        <div class="font-mono text-[0.75rem] text-white/40 leading-relaxed mb-5">Timezone support, alarms & 11:11 wish feature.</div>
+        <a href="26-01-26-tclock/clock.html" class="font-mono text-[0.7rem] text-[#f97316] tracking-widest border-b border-[#f97316]/30 pb-[2px]">View Project ↗</a>
+      </div>
+
+      <div class="p-7 border border-[#f97316]/20 bg-orange-500/5">
+        <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">02</div>
+        <div class="text-xl font-extrabold text-white mb-2">Counter App</div> 
+        <div class="font-mono text-[0.75rem] text-white/40 leading-relaxed mb-5">You can count numbers.</div>
+        <a href="counter/counter.html" class="font-mono text-[0.7rem] text-[#f97316] tracking-widest border-b border-[#f97316]/30 pb-[2px]">View Project ↗</a>
+      </div>
+
+      <div class="p-7 border border-[#f97316]/20 bg-orange-500/5">
+        <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">03</div>
+        <div class="text-xl font-extrabold text-white mb-2">Review Page</div>
+        <div class="font-mono text-[0.75rem] text-white/40 leading-relaxed mb-5">Interactive layouts.</div>
+        <a href="19-01-26-review/review.html" class="font-mono text-[0.7rem] text-[#f97316] tracking-widest border-b border-[#f97316]/30 pb-[2px]">View Project ↗</a>
+      </div>
+
+      <div class="p-7 border border-[#f97316]/20 bg-orange-500/5">
+        <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">04</div>
+        <div class="text-xl font-extrabold text-white mb-2">Ecommerce Dashboard</div>
+        <div class="font-mono text-[0.75rem] text-white/40 leading-relaxed mb-5">Modern dashboard.</div>
+        <a href="ecommerce/web.html" class="font-mono text-[0.7rem] text-[#f97316] tracking-widest border-b border-[#f97316]/30 pb-[2px]">View Project ↗</a>
+      </div>
+
+      <div class="p-7 border border-[#f97316]/20 bg-orange-500/5">
+        <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">05</div>
+        <div class="text-xl font-extrabold text-white mb-2">Analytics Dashboard</div>
+        <div class="font-mono text-[0.75rem] text-white/40 leading-relaxed mb-5">Visualization with real-time grid layout.</div>
+        <a href="dashboard/grid.html" class="font-mono text-[0.7rem] text-[#f97316] tracking-widest border-b border-[#f97316]/30 pb-[2px]">View Project ↗</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="contact" class="px-[6vw] py-20">
+
+    <h2 class="text-[2.5rem] font-extrabold text-white mb-4">
+      Get In <span class="text-[#f97316]">Touch.</span>
+    </h2>
+
+    <p class="font-mono text-sm text-white/40 leading-relaxed mb-8">
+      Open to work, collaborations and cool ideas.<br>
+      Feel free to reach out!
+    </p>
+
+    <div class="flex flex-col gap-4">
+      <a href="mailto:rupal.arya1212@gmail.com" class="font-mono text-[0.9rem] text-white/60 no-underline tracking-wide hover:text-[#f97316] transition-colors">
+        <span class="text-[#f97316] mr-3">→</span> rupal.arya1212@gmail.com
+      </a>
+      <a href="https://github.com/ryaa-star" class="font-mono text-[0.9rem] text-white/60 no-underline tracking-wide hover:text-[#f97316] transition-colors">
+        <span class="text-[#f97316] mr-3">→</span> github.com/ryaa-star
+      </a>
+      <a href="https://www.linkedin.com/in/rupal-arya-4706912a3" class="font-mono text-[0.9rem] text-white/60 no-underline tracking-wide hover:text-[#f97316] transition-colors">
+        <span class="text-[#f97316] mr-3">→</span> linkedin.com/in/rupal-arya
+      </a>
+    </div>
+
+  </section>
+
+  <script>
+    const words = [
+      "interfaces that feel alive.",
+      "experiences, not just pages.",
+      "creative frontend magic.",
+      "things people love to use."
+    ];
+
+    let wordIndex = 0, charIndex = 0, deleting = false;
+    const typing = document.getElementById("typing");
+
+    function typeEffect() {
+      const current = words[wordIndex];
+      if (!deleting) {
+        typing.textContent = current.slice(0, charIndex++);
+        if (charIndex > current.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1500);
+          return;
+        }
+      } else {
+        typing.textContent = current.slice(0, charIndex--);
+        if (charIndex < 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(typeEffect, deleting ? 40 : 70);
     }
-  } else {
-    typing.textContent = current.slice(0, charIndex--);
-    if(charIndex < 0){
-      deleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-    }
-  }
 
-  setTimeout(typeEffect, deleting ? 40 : 70);
-}
-
-setTimeout(typeEffect,1000);
-
-
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener("resize", ()=>{
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
-
-let particles = [];
-
-document.addEventListener("mousemove",(e)=>{
-  for(let i=0;i<2;i++){
-    particles.push({
-      x:e.clientX,
-      y:e.clientY,
-      size:Math.random()*3+1,
-      speedY:Math.random()*-2,
-      life:1
-    });
-  }
-});
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  particles.forEach((p,index)=>{
-    p.y += p.speedY;
-    p.life -= 0.03;
-
-    if(p.life <= 0){
-      particles.splice(index,1);
-    }
-
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);
-    ctx.fillStyle = "rgba(249,115,22,"+p.life+")";
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
-</script>
+    setTimeout(typeEffect, 1000);
+  </script>
 
 </body>
 </html>
