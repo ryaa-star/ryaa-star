@@ -11,11 +11,28 @@
 
 *{ margin: 0; padding: 0; box-sizing: border-box; }
 body { background: #0a0a0a; font-family: 'Syne', sans-serif; }
-h1 { font-weight: 800; font-size: clamp(5rem, 14vw, 13rem); line-height: 0.92; color: #f5f5f5; }
+h1 { font-weight: 800; font-size: clamp(3.5rem, 18vw, 13rem); line-height: 0.92; color: #f5f5f5; }
 h1 span { color: #f97316; }
 #typing { color: #f97316; border-right: 2px solid #f97316; padding-right: 4px; animation: blink 0.7s infinite; }
 @keyframes blink { 50% { border-color: transparent; } }
-  
+.nav-links { display: flex; gap: 2rem; }
+
+@media (max-width: 640px) {
+  .nav-links {
+    display: none; flex-direction: column; gap: 1.2rem;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: #0a0a0a; z-index: 40;
+    justify-content: center; align-items: center; padding: 2rem;
+  }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex !important; }
+  .hero-badge { position: static !important; margin-bottom: 1.5rem; }
+  .hero-section { padding-top: 6rem !important; justify-content: flex-start !important; }
+  .projects-grid { grid-template-columns: 1fr !important; }
+  h2 { font-size: clamp(2.2rem, 10vw, 3.5rem) !important; }
+  .cta-buttons { flex-direction: column !important; }
+}
+
 </style>
 </head>
 
@@ -27,18 +44,24 @@ h1 span { color: #f97316; }
     R. <span class="text-[#f97316]">Arya</span>
   </div>
 
-  <div class="flex gap-8">
-    <a href="#hero"     class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Home</a>
-    <a href="#about"    class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">About</a>
-    <a href="#skills"   class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Skills</a>
-    <a href="#projects" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Projects</a>
-    <a href="#contact"  class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Contact</a>
+  <button class="hamburger hidden z-50 relative flex-col gap-[5px] p-2" id="hamburger" aria-label="Toggle menu">
+    <span class="block w-6 h-[2px] bg-white transition-all" id="h1"></span>
+    <span class="block w-6 h-[2px] bg-white transition-all" id="h2"></span>
+    <span class="block w-6 h-[2px] bg-white transition-all" id="h3"></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#hero"     onclick="closeNav()" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Home</a>
+    <a href="#about"    onclick="closeNav()" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">About</a>
+    <a href="#skills"   onclick="closeNav()" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Skills</a>
+    <a href="#projects" onclick="closeNav()" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Projects</a>
+    <a href="#contact"  onclick="closeNav()" class="font-mono text-[0.90rem] tracking-normal uppercase text-white/50 hover:text-[#f97316] transition-colors">Contact</a>
   </div>
 
 </nav>
-<section id="hero" class="min-h-screen flex flex-col justify-center px-[6vw] relative">
+<section id="hero" class="hero-section min-h-screen flex flex-col justify-center px-[6vw] pt-24 relative">
 
-    <div class="absolute top-8 right-[6vw] font-mono text-[0.99rem] tracking-[0.15em] text-white/40">
+    <div class="hero-badge absolute top-8 right-[6vw] font-mono text-[0.99rem] tracking-[0.15em] text-white/40">
       AVAILABLE FOR OPPORTUNITIES
     </div>
 <p class="font-mono text-[0.85rem] tracking-widest text-[#f97316] mb-8">
@@ -54,7 +77,7 @@ h1 span { color: #f97316; }
      <p class="mt-10 font-mono text-[clamp(0.85rem,1.5vw,1rem)] text-white/70">
       I build <span id="typing"></span>
     </p>
-<div class="mt-12 flex gap-4 flex-wrap">
+<div class="cta-buttons mt-12 flex gap-4 flex-wrap">
       <a href="#projects" class="px-8 py-3 bg-[#f97316] text-[#0a0a0a] font-bold text-sm tracking-wide uppercase hover:-translate-y-1 transition-transform">
         See my work
       </a>
@@ -101,6 +124,11 @@ h1 span { color: #f97316; }
       <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">C++</span>
       <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">Figma</span>
       <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">Python</span>
+      <span class="px-5 py-2 border border-[#f97316] text-[#f97316] font-mono text-sm tracking-widest">SQL</span>
+
+
+
+
 
 
     </div>
@@ -115,7 +143,7 @@ h1 span { color: #f97316; }
       My <span class="text-[#f97316]">Projects.</span>
     </h2>
 
-    <div class="grid grid-cols-2 gap-6 max-w-[900px]">
+    <div class="projects-grid grid gap-6 max-w-[900px]" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));">
 
   <div class="p-7 border border-[#f97316]/20 bg-orange-500/5 hover:border-[#f97316]/50 hover:-translate-y-1 transition-all duration-300">
     <div class="font-mono text-[0.65rem] text-[#f97316]/50 mb-3 tracking-widest">01</div>
@@ -230,6 +258,27 @@ h1 span { color: #f97316; }
     }
 
     setTimeout(typeEffect, 1000);
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+    const h1 = document.getElementById("h1");
+    const h2 = document.getElementById("h2");
+    const h3 = document.getElementById("h3");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      const isOpen = navLinks.classList.contains("open");
+      h1.style.transform = isOpen ? "translateY(7px) rotate(45deg)" : "";
+      h2.style.opacity = isOpen ? "0" : "1";
+      h3.style.transform = isOpen ? "translateY(-7px) rotate(-45deg)" : "";
+    });
+
+    function closeNav() {
+      navLinks.classList.remove("open");
+      h1.style.transform = "";
+      h2.style.opacity = "1";
+      h3.style.transform = "";
+    }
   </script>
 
 </body>
